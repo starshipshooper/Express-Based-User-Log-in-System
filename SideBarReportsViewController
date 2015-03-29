@@ -1,0 +1,32 @@
+Ext.define('CWF.view.SideBarReportsViewController', {
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.sidebarreports',
+
+    onSwitchTabOne:  function() {
+
+      this.lookupReference('reportcards').getLayout().setActiveItem(0);
+    },
+    onSwitchTabTwo:  function() {
+
+      this.lookupReference('reportcards').getLayout().setActiveItem(1);
+    },
+    onSwitchTabThree:  function() {
+
+      this.lookupReference('reportcards').getLayout().setActiveItem(2);
+    },
+    onCloudApplicationReport: function(c){
+                c.getEl().on('click', function(){
+                  Ext.getCmp('reportcards').getLayout().setActiveItem(2);
+                }, c);
+            },
+    onWebActivityReport: function(c){
+                c.getEl().on('click', function(){
+                  Ext.getCmp('reportcards').getLayout().setActiveItem(1);
+                }, c);
+            },
+    onUserStatusReport: function(c){
+              c.getEl().on('click', function(){
+                Ext.getCmp('reportcards').getLayout().setActiveItem(0);
+              }, c);
+          }
+});
